@@ -1,0 +1,27 @@
+﻿<Window x:Class="AnotherBindingDemoForGithub.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnotherBindingDemoForGithub"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56"></RowDefinition>
+            <RowDefinition Height="42"></RowDefinition>
+            <RowDefinition Height="28"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="Hello, Github!" FontSize="32"/>
+        <Label Grid.Row="1"  Content="Hello, WPF devs!" FontSize="20"/>
+        <TextBox Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2"/>
+        <ListView ItemsSource="{Binding TestUsers, Mode=TwoWay}" Grid.Row="3">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding UserName}"></Label>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>
